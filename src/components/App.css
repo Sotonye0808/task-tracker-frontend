@@ -1,0 +1,25 @@
+/* Light Mode Styles */
+.light-mode, div {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode input[type="text"],
+.light-mode input[type="date"],
+.light-mode textarea {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffd700;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="date"],
+.dark-mode textarea {
+  background-color: #1a1a1a;
+  color: #ffd700;
+}
