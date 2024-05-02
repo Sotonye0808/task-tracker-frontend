@@ -165,7 +165,7 @@ function App() {
         </Container>
       </Router>
       <div className='footer'>
-            <p>Task Tracker App &copy; {new Date().getFullYear()}
+            <p>Task Tracker &copy; {new Date().getFullYear()}
             <br />
             Version <strong>2.0.1</strong></p>
             
