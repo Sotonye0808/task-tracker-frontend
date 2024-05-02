@@ -16,6 +16,7 @@ const TaskForm = ({ onSubmit }) => {
     setIsSubmitting(true);
 
     const newTask = {
+      // Omit id here to let the server handle it
       title,
       description,
       date,
@@ -24,6 +25,7 @@ const TaskForm = ({ onSubmit }) => {
 
     onSubmit(newTask);
 
+    // Clear form fields after submission
     setTitle('');
     setDescription('');
     setDate('');

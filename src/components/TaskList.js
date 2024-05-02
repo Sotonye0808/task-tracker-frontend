@@ -17,7 +17,7 @@ const TaskList = ({ tasks, onRemove }) => {
   };
 
   const confirmRemove = () => {
-    onRemove(taskToRemove); // Pass the task to be removed to the parent component
+    onRemove(taskToRemove._id); // Pass the task ID to be removed to the parent component
     setShowConfirmation(false);
   };
 
@@ -28,7 +28,7 @@ const TaskList = ({ tasks, onRemove }) => {
         {tasks.map((task, index) => (
           <ListGroup.Item
             className='task-item'
-            key={task._id}
+            key={task._id || index} // Use task._id as the key
             onClick={() => handleTaskClick(index)}
             style={{
               fontWeight: task.reminder ? 'bold' : 'normal',

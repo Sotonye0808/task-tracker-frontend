@@ -17,7 +17,7 @@ const Logistics = () => {
   const fetchStats = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/stats');
+      const response = await fetch('http://10.11.196.111:5000/stats');
       if (!response.ok) {
         throw new Error('Failed to fetch statistics');
       }

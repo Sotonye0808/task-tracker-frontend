@@ -31,7 +31,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('http://localhost:5000/tasks');
+      const response = await fetch('http://10.11.196.111:5000/tasks');
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
       }
@@ -44,7 +44,7 @@ function App() {
 
   const handleAddTask = async (newTask) => {
     try {
-      const response = await fetch('http://localhost:5000/tasks', {
+      const response = await fetch('http://10.11.196.111:5000/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,37 +59,45 @@ function App() {
       setTasks([...tasks, data]);
       setTasksAdded(tasksAdded + 1);
       //wish to make request to update user stats
-      const responseStats = await fetch('http://localhost:5000/updateUserStats', {
+      const responseStats = await fetch('http://10.11.196.111:5000/updateUserStats', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ action: 'add' }),
       });
+
+      if (!responseStats.ok) {
+        throw new Error('Failed to update user stats');
+      }
     } catch (error) {
       console.error('Error adding task:', error);
     }
   };
 
-  const handleRemoveTask = async (taskToRemove) => {
+  const handleRemoveTask = async (taskId) => {
     try {
-      const response = await fetch(`http://localhost:5000/tasks/${taskToRemove._id}`, {
+      const response = await fetch(`http://10.11.196.111:5000/tasks/${taskId}`, {
         method: 'DELETE',
       });
 
       if (!response.ok) {
         throw new Error('Failed to remove task');
       }
-      setTasks(tasks.filter((task) => task._id !== taskToRemove._id));
+      setTasks(tasks.filter((task) => task._id !== taskId));
       setTasksRemoved(tasksRemoved + 1);
       //wish to make request to update user stats
-      const responseStats = await fetch('http://localhost:5000/updateUserStats', {
+      const responseStats = await fetch('http://10.11.196.111:5000/updateUserStats', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ action: 'remove' }),
       });
+
+      if (!responseStats.ok) {
+        throw new Error('Failed to update user stats');
+      }
     } catch (error) {
       console.error('Error removing task:', error);
     }
