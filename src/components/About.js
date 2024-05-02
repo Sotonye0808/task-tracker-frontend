@@ -10,13 +10,13 @@ const About = () => {
         <hr />
         <h4>Features</h4>
         <ul>
-          <li>Add new tasks: Users can add tasks by entering a task name and optionally specifying a day and time.</li>
-            <li>Delete tasks: Users can remove tasks from the list.</li>
-            <li>Toggle reminder: Users can toggle a reminder for a task, which will display their tasks boldly so they won't forget.
+          <li><strong>Add new tasks:</strong> Users can add tasks by entering a task name and optionally specifying a day and time.</li>
+            <li><strong>Delete tasks:</strong> Users can remove tasks from the list.</li>
+            <li><strong>Toggle reminder:</strong> Users can toggle a reminder for a task, which will display their tasks boldly so they won't forget.
           </li>
-          <li>Usage statistics: The app tracks the number of tasks added and removed by the user on a daily, weekly, and monthly basis.</li>
-          <li>Responsive design: The app is responsive and works well on both desktop and mobile devices.</li>
-          <li>Persistent data: Task data is stored uniquely for each user, so tasks persist even after refreshing the page.</li>
+          <li><strong>Usage statistics:</strong> The app tracks the number of tasks added and removed by the user on a daily, weekly, and monthly basis.</li>
+          <li><strong>Responsive design:</strong> The app is responsive and works well on both desktop and mobile devices.</li>
+          <li><strong>Persistent data:</strong> Task data is stored uniquely for each user, so tasks persist even after refreshing the page.</li>
         </ul>
         <hr />
         <h4>Tasks That involve tracking time?</h4>
