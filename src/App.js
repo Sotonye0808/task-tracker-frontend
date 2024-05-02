@@ -13,14 +13,21 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [tasksAdded, setTasksAdded] = useState(0);
-  const [tasksRemoved, setTasksRemoved] = useState(0);
-  const [theme, setTheme] = useState('light');
+  const [tasksRemoved, setTasksRemoved] = useState(0);const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
     document.body.className = `${theme}-mode`;
     document.getElementById('root').className = `${theme}-mode`;
   }, [theme]);
@@ -70,6 +77,8 @@ function App() {
       if (!responseStats.ok) {
         throw new Error('Failed to update user stats');
       }
+      //fetch updated tasks
+      fetchTasks();
     } catch (error) {
       console.error('Error adding task:', error);
     }
@@ -98,6 +107,8 @@ function App() {
       if (!responseStats.ok) {
         throw new Error('Failed to update user stats');
       }
+      //fetch updated tasks
+      fetchTasks();
     } catch (error) {
       console.error('Error removing task:', error);
     }
@@ -108,49 +119,58 @@ function App() {
   };
 
   return (
-    <Router>
-      <Container className={`mt-4 ${theme}-mode`}>
-        <Row>
-          <Col className='col-8'>
-            <h1>TASK TRACKER</h1>
+    <div >
+      <Router>
+        <Container className={`mt-4 ${theme}-mode`}>
+          <Row>
+            <Col className='col-8'>
+              <h1>TASK TRACKER</h1>
+              <br />
+              <Routes>
+                <Route  path="/task-tracker-app" element={<TaskList tasks={tasks} onRemove={handleRemoveTask} />} />
+                <Route  path="/" element={<TaskList tasks={tasks} onRemove={handleRemoveTask} />} />
+                <Route path="/about" element={<About />} />
+                <Route
+                  path="/stats"
+                  element={<Logistics tasksAdded={tasksAdded} tasksRemoved={tasksRemoved} />}
+                />
+                <Route path="/task-form" element={<TaskForm onSubmit={handleAddTask} />} />
+              </Routes>
+            </Col>
+            <Col>
+              <nav className='navbar'>
+                <ul>
+                  <li>
+                    <Link to="/">Tasks</Link>
+                  </li>
+                  <li>
+                    <Link to="/task-form">Add Task</Link>
+                  </li>
+                  <li>
+                    <Link to="/stats">Stats</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <ThemeToggle toggleTheme={toggleTheme} />
+                  </li>
+                </ul>
+              </nav>
+            </Col>
+          </Row>
+          <Button className='fixed' variant="info" onClick={handleGoBack}>
+            Go Back
+            </Button>
+        </Container>
+      </Router>
+      <div className='footer'>
+            <p>Task Tracker App &copy; {new Date().getFullYear()}
             <br />
-            <Routes>
-              <Route exact path="/" element={<TaskList tasks={tasks} onRemove={handleRemoveTask} />} />
-              <Route path="/about" element={<About />} />
-              <Route
-                path="/stats"
-                element={<Logistics tasksAdded={tasksAdded} tasksRemoved={tasksRemoved} />}
-              />
-              <Route path="/task-form" element={<TaskForm onSubmit={handleAddTask} />} />
-            </Routes>
-          </Col>
-          <Col>
-            <nav className='navbar'>
-              <ul>
-                <li>
-                  <Link to="/">Tasks</Link>
-                </li>
-                <li>
-                  <Link to="/task-form">Add Task</Link>
-                </li>
-                <li>
-                  <Link to="/stats">Stats</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <ThemeToggle toggleTheme={toggleTheme} />
-                </li>
-              </ul>
-            </nav>
-          </Col>
-        </Row>
-        <Button className='fixed' variant="info" onClick={handleGoBack}>
-          Go Back
-        </Button>
-      </Container>
-    </Router>
+            Version <strong>2.0.1</strong></p>
+            
+      </div>
+    </div>
   );
 }
 

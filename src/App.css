@@ -73,7 +73,7 @@ body.dark-mode, .root.dark-mode {
   text-align: center;
 }
 
-.navbar a{
+.navbar a, .navbar li label{
   float: left;
   display: block;
   width: 100%;
@@ -81,9 +81,39 @@ body.dark-mode, .root.dark-mode {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  margin-bottom: 0;
 }
 
 .navbar a:hover{
   background-color: #ddd;
   color: black;
+}
+
+.navbar li label:hover{
+  cursor: pointer;
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+p a{
+  color: steelblue;
+  text-decoration: none;
+  border-color: transparent;
+}
+
+p a:hover{
+  color: steelblue;
+  text-decoration: none;
+  border: 1px solid;
+  padding: 0.05em;
+}
+
+p a:visited{
+  color: maroon;
+  text-decoration: none;
 }
