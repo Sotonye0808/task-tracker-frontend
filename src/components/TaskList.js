@@ -54,7 +54,7 @@ const TaskList = ({ tasks, onRemove }) => {
           <Modal.Title>Confirmation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are you sure you want to remove the task "{taskToRemove && taskToRemove.title}"?
+          Are you sure you want to remove the task "{taskToRemove && taskToRemove.title}"? This action cannot be undone!
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowConfirmation(false)}>

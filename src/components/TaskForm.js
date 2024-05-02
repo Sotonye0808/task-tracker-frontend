@@ -51,7 +51,8 @@ const TaskForm = ({ onSubmit }) => {
       </Form.Group>
       <Form.Group controlId="formTaskDate">
         <Form.Label>Date</Form.Label>
-        <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        {/*want date input to be date and time */}
+        <Form.Control type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
       </Form.Group>
       <Form.Group controlId="formTaskReminder">
         <Form.Check type="checkbox" label="Set Reminder" checked={reminder} onChange={(e) => setReminder(e.target.checked)} />
