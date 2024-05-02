@@ -24,7 +24,7 @@ const About = () => {
         <p>Well, I built this <a href="https://sotonye0808.github.io/js-clock">25+5 Clock</a> just for that! (not exactly just for that but it helps)</p>
         <p>Check it out!</p>
         <hr />
-        <h4>Author</h4>
+        <h4>Developer</h4>
         <p>Hi, I'm Sotonye Dagogo, a fullstack developer who loves building web applications.</p>
         <p>Check out my <a href="https://github.com/Sotonye0808">github</a> for more projects.</p>
         <hr />

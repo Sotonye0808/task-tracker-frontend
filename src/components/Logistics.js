@@ -43,7 +43,7 @@ const Logistics = () => {
       <h2 className="mb-4 text-center">Your Stats</h2>
       <div className="row">
         <div className="col-md-4 mb-4">
-          <div className="card bg-primary text-white">
+          <div className="card bg-primary">
             <div className="card-body">
               <h3 className="card-title">Daily</h3>
               <p className="card-text">Tasks added: {stats.daily.tasksAdded}</p>
@@ -52,7 +52,7 @@ const Logistics = () => {
           </div>
         </div>
         <div className="col-md-4 mb-4">
-          <div className="card bg-secondary text-white">
+          <div className="card bg-secondary">
             <div className="card-body">
               <h3 className="card-title">Weekly</h3>
               <p className="card-text">Tasks added: {stats.weekly.tasksAdded}</p>
@@ -61,7 +61,7 @@ const Logistics = () => {
           </div>
         </div>
         <div className="col-md-4 mb-4">
-          <div className="card bg-info text-white">
+          <div className="card bg-info">
             <div className="card-body">
               <h3 className="card-title">Monthly</h3>
               <p className="card-text">Tasks added: {stats.monthly.tasksAdded}</p>

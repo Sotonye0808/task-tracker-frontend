@@ -9,10 +9,14 @@
 }
 
 .light-mode input[type="text"],
-.light-mode input[type="date"],
+.light-mode input[type="datetime-local"],
 .light-mode textarea,
 .light-mode .task-item {
   background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .card{
   color: #000000;
 }
 
@@ -34,10 +38,14 @@ body.dark-mode, .root.dark-mode {
 }
 
 .dark-mode input[type="text"],
-.dark-mode input[type="date"],
+.dark-mode input[type="datetime-local"],
 .dark-mode textarea,
 .dark-mode .task-item {
   background-color: #121212;
+  color: #ffd700; /* Gold text color */
+}
+
+.dark-mode .card{
   color: #ffd700; /* Gold text color */
 }
 
@@ -98,6 +106,12 @@ body.dark-mode, .root.dark-mode {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.footer p{
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 p a{
