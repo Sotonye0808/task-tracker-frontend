@@ -153,6 +153,7 @@ function App() {
               <br />
               <Routes>
                 <Route  path="/task-tracker-app" element={<TaskList tasks={tasks} onRemove={handleRemoveTask} />} />
+                <Route  path="/task-tracker-frontend" element={<TaskList tasks={tasks} onRemove={handleRemoveTask} />} />
                 <Route  path="/" element={<TaskList tasks={tasks} onRemove={handleRemoveTask}  />} />
                 <Route path="/about" element={<About />} />
                 <Route
