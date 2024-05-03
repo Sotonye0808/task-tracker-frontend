@@ -121,13 +121,10 @@ p a{
 }
 
 p a:hover{
-  color: steelblue;
+  background-color: steelblue;
+  color: unset;
   text-decoration: none;
   border: 1px solid;
+  border-radius: 0.3rem;
   padding: 0.05em;
-}
-
-p a:visited{
-  color: maroon;
-  text-decoration: none;
 }
