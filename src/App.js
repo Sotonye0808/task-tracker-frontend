@@ -15,6 +15,31 @@ function App() {
   const [tasksAdded, setTasksAdded] = useState(0);
   const [tasksRemoved, setTasksRemoved] = useState(0);const [theme, setTheme] = useState('light');
 
+  //code to call updateUserStats.js to update user stats based on the action "reset"
+  useEffect(() => {
+    const updateUserStats = async () => {
+      try {
+        const response = await fetch('http://10.11.196.111:5000/updateUserStats', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ action: 'reset' }),
+        });
+        if (!response.ok) {
+          throw new Error('Could not reset user stats');
+        }
+        // Fetch updated tasks
+        fetchTasks();
+      } catch (error) {
+        console.error('Error resetting user stats:', error);
+      }
+    };
+  
+    updateUserStats(); // Call the function immediately
+  
+  }, []); // Empty dependency array to run the effect only once
+  
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
