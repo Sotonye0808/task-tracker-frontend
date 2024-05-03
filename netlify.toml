@@ -1,0 +1,13 @@
+[build]
+  # Build command to run when deploying
+  command = "npm run build"
+
+  # Directory to publish after building
+  publish = "task-tracker-frontend/build"
+
+[dev]
+  # Command to start a local development server
+  command = "npm start"
+
+  # Port to use for the local development server
+  port = 3000
