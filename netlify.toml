@@ -3,7 +3,7 @@
   command = "npm run build"
 
   # Directory to publish after building
-  publish = "task-tracker-frontend/build"
+  publish = "task-tracker-app/task-tracker-frontend/build"
 
 [dev]
   # Command to start a local development server
