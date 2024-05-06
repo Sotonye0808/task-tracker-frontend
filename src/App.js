@@ -63,7 +63,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('//10.11.196.111:5000/tasks');
+      const response = await fetch('http://10.11.196.111:5000/tasks');
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
       }
